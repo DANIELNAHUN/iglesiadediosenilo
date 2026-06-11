@@ -40,12 +40,14 @@ Chain strategy: single-pr
 
 ## Phase 3: LeafletMap Component
 
-- [ ] 3.1 Create `src/components/LeafletMap.vue` with props: `center` (Array, default `[-17.64, -71.34]`), `zoom` (Number, default 15), `markers` (Array), `routes` (Array), `referencePoints` (Array)
-- [ ] 3.2 Implement `referencePoints` prop with icon type mapping: `park` → 🌳, `ovalo` → 🏟️, `mercado` → 🛒, `gobierno` → 🏛️, `iglesia` → ⛪
-- [ ] 3.3 Create `getIconForType(type)` function returning appropriate emoji/SVG marker per reference point type
-- [ ] 3.4 Render Leaflet markers for event location and each reference point using `@vue-leaflet/vue-leaflet` components
-- [ ] 3.5 Render polyline routes from reference points to event location with configurable color (default: primary gold dashed)
-- [ ] 3.6 Import Leaflet CSS in component `<style>` block (scoped) to avoid Tailwind preflight conflicts
+- [x] 3.1 Create `src/components/LeafletMap.vue` with props: `eventLocation` (Object, required), `referencePoints` (Array, required), `center` (Array, optional, defaults to eventLocation.coords), `zoom` (Number, default 15), `routeColor` (String, default '#957850' — brand warm-gold)
+- [x] 3.2 Implement `referencePoints` prop with icon type mapping: `park` → 🌳, `ovalo` → 🏟️, `mercado` → 🛒, `gobierno` → 🏛️, `iglesia` → ⛪
+- [x] 3.3 Create `getIconForType(type)` function returning appropriate emoji `L.divIcon` per reference point type; unknown types fall back to 📍
+- [x] 3.4 Render Leaflet markers for event location (distinct sparkle icon) and each reference point using `@vue-leaflet/vue-leaflet`'s `l-map`, `l-tile-layer`, `l-marker`, `l-popup` components
+- [x] 3.5 Render `l-polyline` routes from each reference point to the event location with configurable `routeColor`, dashed (6,8) at 0.7 opacity
+- [x] 3.6 Import `leaflet/dist/leaflet.css` inside `<script setup>` so Vite bundles it once with the component (scoped to the component lifetime), preventing Tailwind's preflight from clobbering Leaflet's tile/control layout. Component `<style scoped>` uses `:deep()` only for the pin visuals.
+
+> **Note**: 3.1 originally listed five props (`center`, `zoom`, `markers`, `routes`, `referencePoints`). The shipped API collapses this to `eventLocation` + `referencePoints` + `center/zoom/routeColor` overrides, because the event location and routes are derived from the two main props. This is the same semantic — no lost functionality, simpler surface for the view in PR#3.
 
 ## Phase 4: CampanaView & WelcomeView
 
