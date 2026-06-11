@@ -1,0 +1,66 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;1,9..144,400&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --background: 0 0% 100%;
+  --foreground: 0 0% 10%;
+  --primary: 35 30% 45%;
+  --primary-foreground: 0 0% 100%;
+  --muted-foreground: 0 0% 45%;
+  --border: 0 0% 92%;
+
+  /* Glassmorphism tokens */
+  --glass-bg: rgba(255, 255, 255, 0.15);
+  --glass-border: rgba(255, 255, 255, 0.2);
+  --glass-blur: 12px;
+  --glass-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Inter', system-ui, sans-serif;
+  background-color: hsl(var(--background));
+  color: hsl(var(--foreground));
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.font-serif-display {
+  font-family: 'Fraunces', Georgia, serif;
+}
+
+/* Vue Transitions */
+.fade-in-enter-active {
+  transition: opacity 0.8s ease;
+}
+.fade-in-enter-from {
+  opacity: 0;
+}
+
+.slide-up-enter-active {
+  transition: opacity 0.6s cubic-bezier(0.25, 0.1, 0.25, 1),
+              transform 0.6s cubic-bezier(0.25, 0.1, 0.25, 1);
+}
+.slide-up-enter-from {
+  opacity: 0;
+  transform: translateY(8px);
+}
+
+/* Stagger delays */
+.style-delay-1 { transition-delay: 0.3s; }
+.style-delay-2 { transition-delay: 0.6s; }
+.style-delay-3 { transition-delay: 0.9s; }
+
+/* Smooth scroll */
+html {
+  scroll-behavior: smooth;
+}
