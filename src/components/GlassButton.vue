@@ -1,17 +1,21 @@
 <template>
-  <router-link
-    :to="to"
+  <component
+    :is="external ? 'a' : 'router-link'"
+    :to="external ? undefined : to"
+    :href="external ? to : undefined"
+    :target="external ? '_blank' : undefined"
+    :rel="external ? 'noopener noreferrer' : undefined"
     class="glass-button"
     :aria-label="label"
   >
     <span class="glass-button__label">{{ label }}</span>
     <slot />
-  </router-link>
+  </component>
 </template>
 
 <script setup>
 defineProps({
-  /** Destination path passed to <router-link> */
+  /** Destination path passed to <router-link> or href on <a> */
   to: {
     type: String,
     required: true
@@ -20,6 +24,14 @@ defineProps({
   label: {
     type: String,
     required: true
+  },
+  /**
+   * If true, renders an external <a target="_blank"> instead of a
+   * <router-link>. Use for absolute URLs (Google Maps, social, etc.).
+   */
+  external: {
+    type: Boolean,
+    default: false
   }
 })
 </script>

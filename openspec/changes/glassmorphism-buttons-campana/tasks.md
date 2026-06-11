@@ -51,14 +51,14 @@ Chain strategy: single-pr
 
 ## Phase 4: CampanaView & WelcomeView
 
-- [ ] 4.1 Create `src/views/CampanaView.vue` with 50/50 flex split layout (`flex-col md:flex-row`), left: campaign content from Formato1.html, right: LeafletMap
-- [ ] 4.2 Extract campaign text into CampanaView data: title "¡VEN TÚ Y TU FAMILIA!", subtitle, verse (Marcos 9:23), closing "¡PREPÁRATE, CRISTO VIENE!"
-- [ ] 4.3 Define referencePoints array in CampanaView with configurable icon types (park, ovalo, mercado, gobierno, iglesia)
-- [ ] 4.4 Modify `src/views/WelcomeView.vue`: add two GlassButton instances below the quote — "Ubicación de la Iglesia Central" (to Google Maps link) and "Campañas" (to `/campana`)
+- [x] 4.1 Create `src/views/CampanaView.vue` with 50/50 flex split layout (`flex-col md:flex-row`), left: campaign content from Formato1.html, right: LeafletMap
+- [x] 4.2 Extract campaign text into CampanaView data: title "¡VEN TÚ Y TU FAMILIA!", subtitle, verse (Marcos 9:23), closing "¡PREPÁRATE, CRISTO VIENE!" (sourced from `src/data/campana-data.js`, which already lifted the text from `Formato1.html`)
+- [x] 4.3 Define referencePoints array in CampanaView with configurable icon types (park, ovalo, mercado, gobierno, iglesia) (sourced from `src/data/campana-data.js` created in PR#2)
+- [x] 4.4 Modify `src/views/WelcomeView.vue`: add two GlassButton instances below the quote — "Ubicación de la Iglesia Central" (to Google Maps link) and "Campañas" (to `/campana`). GlassButton gained a small `external` boolean prop to render `<a target="_blank">` for the Google Maps link.
 
 ## Phase 5: Verification
 
-- [ ] 5.1 Run `npm run build` — verify no errors, lazy-loaded chunk for CampanaView appears in output
+- [x] 5.1 Run `npm run build` — verify no errors, lazy-loaded chunk for CampanaView appears in output
 - [ ] 5.2 Manual test: click "Campañas" button → navigates to `/campana` with split layout
 - [ ] 5.3 Manual test: map renders with event marker, reference points with correct icons, polyline routes visible
 - [ ] 5.4 Manual test: responsive stacking on mobile (< 768px) — content stacks vertically
