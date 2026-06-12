@@ -2,11 +2,12 @@
   <div class="leaflet-map">
     <l-map
       :zoom="zoom"
-      :center="center"
+      :center="resolvedCenter"
       :use-global-leaflet="false"
       :options="{ scrollWheelZoom: false }"
       class="leaflet-map__container"
       @click="onMapClick"
+      @ready="onMapReady"
     >
       <l-tile-layer
         url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
@@ -20,7 +21,7 @@
         v-for="point in referencePoints"
         :key="`ref-${point.id}`"
         :lat-lng="point.coords"
-        :icon="getIconForType(point.icon)"
+        :icon="getIconForType(point.icon, point.name)"
       >
         <l-popup>
           <strong>{{ point.name }}</strong>
@@ -99,7 +100,7 @@ const props = defineProps({
   /** Initial zoom level. */
   zoom: {
     type: Number,
-    default: 15,
+    default: 16,
   },
   /** Color of the polyline routes connecting refs to the event. */
   routeColor: {
@@ -125,20 +126,41 @@ const resolvedCenter = computed(() => {
  */
 const ICON_GLYPHS = Object.freeze({
   park: '\u{1F333}', // 🌳
-  ovalo: '\u{1F3DF}', // 🏟️
+  ovalo: null, // show name only
   mercado: '\u{1F6D2}', // 🛒
   gobierno: '\u{1F3DB}', // 🏛️
   iglesia: '\u{26EA}', // ⛪
 })
 
-function getIconForType(type) {
+/** Size multipliers per icon type (1 = default, 2 = double). */
+const ICON_SCALE = Object.freeze({
+  park: 2,
+  gobierno: 2,
+})
+
+function getIconForType(type, name) {
   const glyph = ICON_GLYPHS[type] ?? '\u{1F4CD}' // 📍 fallback
+  const scale = ICON_SCALE[type] ?? 1
+
+  if (glyph === null) {
+    // No icon — render the place name as a plain label
+    return L.divIcon({
+      className: 'leaflet-map__label',
+      html: `<span class="leaflet-map__label-text">${name ?? ''}</span>`,
+      iconSize: [120, 24],
+      iconAnchor: [60, 12],
+      popupAnchor: [0, -12],
+    })
+  }
+
+  const size = 32 * scale
+  const half = size / 2
   return L.divIcon({
     className: 'leaflet-map__pin',
-    html: `<span class="leaflet-map__pin-glyph" aria-hidden="true">${glyph}</span>`,
-    iconSize: [32, 32],
-    iconAnchor: [16, 16],
-    popupAnchor: [0, -16],
+    html: `<span class="leaflet-map__pin-glyph" aria-hidden="true" style="font-size:${28 * scale}px">${glyph}</span>`,
+    iconSize: [size, size],
+    iconAnchor: [half, half],
+    popupAnchor: [0, -half],
   })
 }
 
@@ -159,6 +181,19 @@ const eventIcon = computed(() =>
  */
 function onMapClick() {
   // intentional no-op
+}
+
+/**
+ * When the map is ready, compute the bounding box of ALL markers
+ * (reference points + event location) and fit the view so every
+ * pin is visible with a comfortable padding.
+ */
+function onMapReady(map) {
+  const allCoords = [
+    props.eventLocation.coords,
+    ...props.referencePoints.map((p) => p.coords),
+  ]
+  map.fitBounds(allCoords, { padding: [40, 40] })
 }
 </script>
 
@@ -214,5 +249,22 @@ function onMapClick() {
 .leaflet-map :deep(.leaflet-map__pin--event .leaflet-map__pin-glyph) {
   font-size: 38px;
   filter: drop-shadow(0 2px 4px rgba(149, 120, 80, 0.55));
+}
+
+/* Label-only markers (no icon, just the place name) */
+.leaflet-map :deep(.leaflet-map__label) {
+  background: transparent;
+  border: 0;
+}
+
+.leaflet-map :deep(.leaflet-map__label-text) {
+  display: block;
+  text-align: center;
+  font-size: 12px;
+  font-weight: 600;
+  color: #333;
+  white-space: nowrap;
+  text-shadow: 0 1px 3px rgba(255, 255, 255, 0.8);
+  pointer-events: none;
 }
 </style>
