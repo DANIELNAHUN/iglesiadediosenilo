@@ -14,6 +14,12 @@ const router = createRouter({
       name: 'campana',
       // Lazy-loaded: split into a separate chunk
       component: () => import('../views/CampanaView.vue')
+    },
+    {
+      path: '/campana/impresion',
+      name: 'campana-print',
+      // Lazy-loaded: split into a separate chunk
+      component: () => import('../views/CampanaPrintView.vue')
     }
   ],
   scrollBehavior() {
