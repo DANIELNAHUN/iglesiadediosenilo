@@ -45,15 +45,10 @@
       </section>
     </transition>
 
-    <!-- Divider -->
-    <transition appear name="fade-in">
-      <div class="my-12 style-delay-2 h-px w-16 bg-border" aria-hidden="true" />
-    </transition>
-
     <!-- Map -->
     <transition appear name="slide-up">
       <section
-        class="w-full max-w-2xl style-delay-2"
+        class="w-full max-w-2xl style-delay-2 my-3"
         aria-label="Mapa de ubicación del evento"
       >
         <div class="campana__map rounded-2xl border border-border overflow-hidden shadow-sm">
@@ -84,9 +79,6 @@
         </p>
         <p class="font-serif-display text-[clamp(1.1rem,2.5vw,1.5rem)] font-semibold text-foreground">
           Cobresur C6
-        </p>
-        <p class="text-sm text-muted-foreground">
-          Templo cercano a la zona del evento
         </p>
          <!-- CTA -->
         <GlassButton
