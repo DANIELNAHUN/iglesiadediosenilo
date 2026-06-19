@@ -51,12 +51,16 @@
 import croquisUrl from './croquis.png'
 </script>
 
+<style>
+@import './campana_cobresur.css';
+</style>
+
 <style scoped>
 .a6-block {
-  width: 10.5cm;
-  height: 14.85cm;
-  padding: 0.4cm 0.5cm;
-  border: 1px dashed #ccc;
+  width: var(--cc-block-width);
+  height: var(--cc-block-height);
+  padding: var(--cc-padding-block);
+  border: 1px dashed var(--cc-color-border-light);
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -76,54 +80,54 @@ import croquisUrl from './croquis.png'
 }
 
 .main-text {
-  font-size: 5.5pt;
-  line-height: 1.25;
+  font-size: var(--cc-font-size-body);
+  line-height: var(--cc-line-height-body);
   text-align: center;
-  margin-bottom: 0.15cm;
-  font-weight: bold;
-  color: #000000;
+  margin-bottom: var(--cc-gap-body);
+  font-weight: var(--cc-font-weight-bold);
+  color: var(--cc-color-primary);
 }
 
 .bible-ref {
-  border: 1.5px solid #000000;
+  border: 1.5px solid var(--cc-color-border);
   padding: 0.08cm 0.4cm;
-  font-size: 6.5pt;
+  font-size: var(--cc-font-size-ref);
   display: inline-block;
   margin: 0.15cm auto;
-  font-weight: bold;
-  color: #000000;
+  font-weight: var(--cc-font-weight-bold);
+  color: var(--cc-color-primary);
 }
 
 .separator {
-  height: 0.2cm;
+  height: var(--cc-gap-separator);
 }
 
 .info-text {
-  font-size: 7pt;
-  font-weight: bold;
+  font-size: var(--cc-font-size-info);
+  font-weight: var(--cc-font-weight-bold);
   text-align: center;
   margin-top: 0.2cm;
-  color: #000000;
+  color: var(--cc-color-primary);
   letter-spacing: 0.5px;
 }
 
 .subtitle {
-  font-size: 11pt;
-  font-weight: bold;
+  font-size: var(--cc-font-size-subtitle);
+  font-weight: var(--cc-font-weight-bold);
   text-align: center;
   margin: 0.1cm 0 0.2cm 0;
-  color: #000000;
+  color: var(--cc-color-primary);
 }
 
 .map-container {
-  width: 7cm;
-  height: 5cm;
+  width: var(--cc-map-width);
+  height: var(--cc-map-height);
   margin: 0.2cm auto;
   display: flex;
   align-items: center;
   justify-content: center;
-  border: 2px solid #000000;
-  border-radius: 15px;
+  border: 2px solid var(--cc-color-border);
+  border-radius: var(--cc-map-radius);
   overflow: hidden;
   flex-shrink: 0;
 }
@@ -137,61 +141,46 @@ import croquisUrl from './croquis.png'
 
 .location-title {
   font-size: 8pt;
-  font-weight: bold;
+  font-weight: var(--cc-font-weight-bold);
   text-align: center;
   margin-top: 0.3cm;
-  color: #000000;
+  color: var(--cc-color-primary);
 }
 
 .location-text {
-  font-size: 7.5pt;
-  font-weight: bold;
+  font-size: var(--cc-font-size-location);
+  font-weight: var(--cc-font-weight-bold);
   text-align: center;
-  line-height: 1.3;
-  color: #000000;
+  line-height: var(--cc-line-height-location);
+  color: var(--cc-color-primary);
 }
 
-/* Campaign data */
 .campaign-data {
   text-align: center;
   margin: 0.2cm 0;
 }
 
 .campaign-title-svg {
-  width: 7cm;
+  width: var(--cc-map-width);
   height: auto;
   display: block;
   margin: 0 auto 0.1cm auto;
 }
 
 .campaign-title-text {
-  font-size: 14pt;
-  font-weight: bold;
-  fill: #000000;
-  font-family: 'Arial', sans-serif;
+  font-size: var(--cc-font-size-campaign-title);
+  font-weight: var(--cc-font-weight-bold);
+  fill: var(--cc-color-primary);
+  font-family: var(--cc-font-family);
 }
 
-.campaign-date {
-  font-size: 10pt;
-  font-weight: bold;
-  text-align: center;
-  color: #000000;
-  margin: 0.1cm 0;
-}
-
-.campaign-time {
-  font-size: 10pt;
-  font-weight: bold;
-  text-align: center;
-  color: #000000;
-  margin: 0.1cm 0;
-}
-
+.campaign-date,
+.campaign-time,
 .campaign-place {
-  font-size: 10pt;
-  font-weight: bold;
+  font-size: var(--cc-font-size-campaign);
+  font-weight: var(--cc-font-weight-bold);
   text-align: center;
-  color: #000000;
+  color: var(--cc-color-primary);
   margin: 0.1cm 0;
 }
 </style>

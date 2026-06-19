@@ -6,26 +6,23 @@
 
         <p class="main-text">
           "POR TANTO, TAMBIÉN VOSOTROS ESTAD PREPARADOS; PORQUE EL HIJO DEL
-          HOMBRE VENDRÁ A LA HORA QUE NO PENSÁIS"
+          HOMBRE VENDRÁ A LA HORA QUE NO PENSÁIS" - San Mateo 24:44
         </p>
-        <div class="bible-ref">San Mateo 24:44</div>
 
         <div class="separator"></div>
 
         <p class="main-text">
           "PORQUE EL DÍA Y LA HORA NADIE SABE, NI AUN LOS ÁNGELES DE LOS
-          CIELOS, SINO SOLO MI PADRE"
+          CIELOS, SINO SOLO MI PADRE" - San Mateo 24:36
         </p>
-        <div class="bible-ref">San Mateo 24:36</div>
 
         <div class="separator"></div>
 
         <p class="main-text">
           "PORQUE ES NECESARIO QUE TODOS NOSOTROS COMPADEZCAMOS ANTE EL
           TRIBUNAL DE CRISTO, PARA QUE CADA UNO RECIBA SEGÚN LO QUE HAYA
-          HECHO MIENTRAS ESTABA EN EL CUERPO, SEA BUENO O SEA MALO"
+          HECHO MIENTRAS ESTABA EN EL CUERPO, SEA BUENO O SEA MALO" - 2 Corintios 5:10
         </p>
-        <div class="bible-ref">2 Corintios 5:10</div>
 
         <div class="separator"></div>
 
@@ -34,9 +31,8 @@
         <p class="main-text">
           "EL QUE EN ÉL CREE, NO ES CONDENADO; PERO EL QUE NO CREE, YA HA
           SIDO CONDENADO, PORQUE NO HA CREÍDO EN EL NOMBRE DEL UNIGÉNITO HIJO
-          DE DIOS"
+          DE DIOS" - San Juan 3:18
         </p>
-        <div class="bible-ref">San Juan 3:18</div>
 
         <div class="separator"></div>
 
@@ -75,12 +71,16 @@
   </div>
 </template>
 
+<style>
+@import './campana_cobresur.css';
+</style>
+
 <style scoped>
 .a6-block {
-  width: 10.5cm;
-  height: 14.85cm;
-  padding: 0.4cm 0.5cm;
-  border: 1px dashed #ccc;
+  width: var(--cc-block-width);
+  height: var(--cc-block-height);
+  padding: var(--cc-padding-block);
+  border: 1px dashed var(--cc-color-border-light);
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -107,43 +107,42 @@
 }
 
 .large-title {
-  font-size: 12pt;
-  font-weight: bold;
+  font-size: var(--cc-font-size-title);
+  font-weight: var(--cc-font-weight-bold);
   text-align: center;
-  margin: 0.3cm 0;
-  color: #000000;
+  margin: var(--cc-gap-title) 0;
+  color: var(--cc-color-primary);
 }
 
 .main-text {
-  font-size: 5.5pt;
-  line-height: 1.25;
+  font-size: var(--cc-font-size-body);
+  line-height: var(--cc-line-height-body);
   text-align: center;
-  margin-bottom: 0.15cm;
-  font-weight: bold;
-  color: #000000;
+  margin-bottom: var(--cc-gap-body);
+  font-weight: var(--cc-font-weight-bold);
+  color: var(--cc-color-primary);
 }
 
 .bible-ref {
-  border: 1.5px solid #000000;
   padding: 0.1cm 0.4cm;
-  font-size: 6.5pt;
+  font-size: var(--cc-font-size-ref);
   display: block;
   width: fit-content;
-  margin: 0 auto;
-  font-weight: bold;
-  color: #000000;
+  margin: 0;
+  font-weight: var(--cc-font-weight-bold);
+  color: var(--cc-color-primary);
 }
 
 .separator {
-  height: 0.2cm;
+  height: var(--cc-gap-separator);
 }
 
 .info-text {
-  font-size: 7pt;
-  font-weight: bold;
+  font-size: var(--cc-font-size-info);
+  font-weight: var(--cc-font-weight-bold);
   text-align: center;
   margin-top: 0.2cm;
-  color: #000000;
+  color: var(--cc-color-primary);
   letter-spacing: 0.5px;
 }
 
@@ -151,19 +150,19 @@
   border-collapse: collapse;
   width: 85%;
   margin: 0.3cm auto 0 auto;
-  border: 1px solid #000000;
+  border: 1px solid var(--cc-color-border);
 }
 
 .schedule-table td {
-  border: 1px solid #000000;
+  border: 1px solid var(--cc-color-border);
   padding: 0.15cm 0.3cm;
   text-align: center;
-  font-size: 6pt;
-  font-weight: bold;
-  color: #000000;
+  font-size: var(--cc-font-size-schedule);
+  font-weight: var(--cc-font-weight-bold);
+  color: var(--cc-color-primary);
 }
 
 .schedule-table .time {
-  font-size: 7.5pt;
+  font-size: var(--cc-font-size-schedule-time);
 }
 </style>
