@@ -71,29 +71,11 @@
 </template>
 
 <script setup>
-import { computed } from 'vue'
+
 import { campaignContent, eventLocation, referencePoints } from '../data/campana-data.js'
 import LeafletMap from '../components/LeafletMap.vue'
 
-/*
- * Formato1.html embeds the campaign image as a base64 data URL inside an
- * <img> tag. We import the file as raw text and pull out the first data:
- * URL we find — that is the campaign illustration. Using Vite's `?raw`
- * suffix keeps Formato1.html the single source of truth (the spec says
- * the design mirrors Formato1.html) without duplicating ~400KB of base64
- * into the data module.
- *
- * `?raw` returns the file contents as a string at build time, so the
- * regex runs once when the component is first loaded.
- */
-import formato1Raw from '../components/Formato1.html?raw'
-
-const DATA_URL_RE = /src="(data:image\/[a-zA-Z0-9+.-]+;base64,[^"]+)"/
-
-const campaignImageUrl = computed(() => {
-  const match = DATA_URL_RE.exec(formato1Raw)
-  return match ? match[1] : ''
-})
+const campaignImageUrl = ''
 </script>
 
 <style scoped>
