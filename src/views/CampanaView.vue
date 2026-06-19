@@ -1,107 +1,120 @@
 <template>
-  <main
-    class="campana min-h-screen bg-background px-6 py-10 md:py-14 text-foreground"
-  >
-    <div class="campana__shell mx-auto flex w-full max-w-7xl flex-col gap-8 md:flex-row md:gap-10">
-      <!-- Left: campaign content -->
-      <section
-        class="campana__content flex flex-1 flex-col items-center justify-center text-center"
-        aria-labelledby="campana-title"
-      >
+  <main class="campana min-h-screen bg-background flex flex-col items-center justify-center px-6 py-16 md:py-24">
+    <!-- Header: title -->
+    <transition appear name="fade-in">
+      <header class="text-center space-y-3">
+        <p class="text-[11px] font-semibold uppercase tracking-[0.35em] text-muted-foreground">
+          Iglesia del Verbo de Dios en Ilo
+        </p>
         <h1
           id="campana-title"
-          class="font-serif-display text-balance text-[clamp(1.75rem,4.5vw,2.75rem)] font-semibold leading-tight text-foreground"
+          class="font-serif-display text-[clamp(2rem,5vw,3.5rem)] font-semibold leading-[1.1] text-foreground text-balance"
         >
-          {{ campaignContent.title }}
+          Campaña Evangelística
         </h1>
+      </header>
+    </transition>
 
-        <img
-          v-if="campaignImageUrl"
-          :src="campaignImageUrl"
-          :alt="campaignContent.title"
-          class="campana__image my-6 w-full max-w-md rounded-xl border border-border object-cover shadow-sm"
-        />
+    <!-- Divider -->
+    <transition appear name="fade-in">
+      <div class="my-10 style-delay-1 h-px w-16 bg-border" aria-hidden="true" />
+    </transition>
 
-        <p class="font-serif-display italic text-sm text-muted-foreground">
-          {{ campaignContent.tagline }}
-        </p>
+    <!-- Details -->
+    <transition appear name="slide-up">
+      <section class="text-center space-y-8 style-delay-1" aria-labelledby="campana-title">
+        <!-- Date -->
+        <div class="space-y-1">
+          <p class="text-[11px] font-semibold uppercase tracking-[0.3em] text-muted-foreground">
+            Fecha
+          </p>
+          <p class="font-serif-display text-[clamp(1.25rem,3vw,1.75rem)] font-semibold text-foreground">
+            Sábado 20 de Junio
+          </p>
+        </div>
 
-        <p class="mt-3 text-sm font-semibold uppercase tracking-[0.18em] text-[#EE0000]">
-          {{ campaignContent.highlights }}
-        </p>
-
-        <p class="mt-4 font-serif-display italic text-sm text-foreground/80">
-          {{ campaignContent.verse }}
-        </p>
-        <p class="text-xs tracking-[0.15em] uppercase text-muted-foreground">
-          {{ campaignContent.verseReference }}
-        </p>
-
-        <p class="mt-5 text-base font-semibold text-[#EE0000]">
-          {{ campaignContent.date }}
-        </p>
-        <p class="text-sm font-medium tracking-wide text-[#00B0F0]">
-          {{ campaignContent.time }}
-        </p>
-
-        <p class="mt-2 text-sm font-semibold text-[#EE0000]">
-          {{ campaignContent.place }}
-        </p>
-        <p class="text-xs text-muted-foreground">
-          {{ campaignContent.reference }}
-        </p>
-
-        <p class="mt-6 font-serif-display text-balance text-[clamp(1.25rem,3vw,1.75rem)] font-semibold text-foreground">
-          {{ campaignContent.closing }}
-        </p>
+        <!-- Place -->
+        <div class="space-y-1">
+          <p class="text-[11px] font-semibold uppercase tracking-[0.3em] text-muted-foreground">
+            Lugar
+          </p>
+          <p class="font-serif-display text-[clamp(1.25rem,3vw,1.75rem)] font-semibold text-foreground">
+            Loza Deportiva Cobresur
+          </p>
+        </div>       
       </section>
+    </transition>
 
-      <!-- Right: interactive map -->
+    <!-- Divider -->
+    <transition appear name="fade-in">
+      <div class="my-12 style-delay-2 h-px w-16 bg-border" aria-hidden="true" />
+    </transition>
+
+    <!-- Map -->
+    <transition appear name="slide-up">
       <section
-        class="campana__map flex-1"
-        aria-label="Mapa de ubicación de la iglesia"
+        class="w-full max-w-2xl style-delay-2"
+        aria-label="Mapa de ubicación del evento"
       >
-        <LeafletMap
-          :event-location="eventLocation"
-          :reference-points="referencePoints"
+        <div class="campana__map rounded-2xl border border-border overflow-hidden shadow-sm">
+          <iframe
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1074.5388287369383!2d-71.32927481004663!3d-17.64113769694547!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x91445b003028b799%3A0xe1e9962e920926e6!2sLOZA%20DEPORTIVA%20COBRESUR!5e0!3m2!1ses-419!2spe!4v1781905827020!5m2!1ses-419!2spe"
+            width="100%"
+            height="320"
+            style="border: 0"
+            allowfullscreen=""
+            loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade"
+            title="Loza Deportiva Cobresur — mapa"
+          ></iframe>
+        </div>
+      </section>
+    </transition>
+
+    <!-- Divider -->
+    <transition appear name="fade-in">
+      <div class="my-12 h-px w-16 bg-border" aria-hidden="true" />
+    </transition>
+
+    <!-- Annex -->
+    <transition appear name="slide-up">
+      <section class="text-center space-y-3">
+        <p class="text-[11px] font-semibold uppercase tracking-[0.3em] text-muted-foreground">
+          Anexo
+        </p>
+        <p class="font-serif-display text-[clamp(1.1rem,2.5vw,1.5rem)] font-semibold text-foreground">
+          Cobresur C6
+        </p>
+        <p class="text-sm text-muted-foreground">
+          Templo cercano a la zona del evento
+        </p>
+         <!-- CTA -->
+        <GlassButton
+          to="https://maps.app.goo.gl/ytdKVrGcJrYZXy8F7"
+          external
+          label="📍 Cómo llegar"
         />
       </section>
-    </div>
+    </transition>
   </main>
 </template>
 
 <script setup>
-
-import { campaignContent, eventLocation, referencePoints } from '../data/campana-data.js'
-import LeafletMap from '../components/LeafletMap.vue'
-
-const campaignImageUrl = ''
+import GlassButton from '../components/GlassButton.vue'
 </script>
 
 <style scoped>
 .campana {
-  /* The page already has bg-background; ensure full-height layout on
-     short viewports. */
   min-height: 100vh;
 }
 
-.campana__content {
-  /* Allow long content to wrap gracefully on small screens. */
-  word-break: break-word;
-}
-
 .campana__map {
-  /* On mobile, the map sits below the content; give it a fixed
-     height so Leaflet has a stable container to mount into. */
-  height: 360px;
+  background-color: hsl(var(--border));
 }
 
 @media (min-width: 768px) {
-  .campana__map {
-    /* On desktop, the map fills its half of the split and follows the
-       content's natural height. */
-    height: auto;
-    min-height: 520px;
+  .campana__map iframe {
+    height: 400px;
   }
 }
 </style>
