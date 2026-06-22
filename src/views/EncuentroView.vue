@@ -335,13 +335,22 @@ const props = defineProps({
 @media print {
   .encuentro-page {
     padding: 0;
+    margin: 0;
+    gap: 0;
     background: white;
+    min-height: auto;
   }
 
   .a4-sheet {
     box-shadow: none;
     width: 21cm;
     height: 29.7cm;
+    page-break-after: always;
+    page-break-inside: avoid;
+  }
+
+  .a4-sheet:last-child {
+    page-break-after: auto;
   }
 
   .afiche {
