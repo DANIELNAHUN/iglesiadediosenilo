@@ -54,19 +54,47 @@
         </div>
       </div>
     </div>
+
+    <!-- Segunda hoja: Ubicación del templo -->
+    <div class="a4-sheet">
+      <div class="afiche afiche-ubicacion" v-for="i in 4" :key="'ubicacion-' + i">
+        <div class="afiche-content ubicacion-content">
+          <!-- Título del templo -->
+          <h2 class="titulo-templo">{{ nombreTemplo }}</h2>
+
+          <!-- Dirección -->
+          <div class="direccion-info">
+            <p class="direccion-zona">DIRECCIÓN: {{ direccionTemplo }}</p>
+            <p class="direccion-distrito">{{ distritoTemplo }}</p>
+          </div>
+
+          <!-- Mapa de ubicación -->
+          <div class="mapa-container">
+            <img :src="mapaUrl" alt="Mapa de ubicación de la iglesia" class="mapa-imagen" />
+          </div>
+
+          
+        </div>
+      </div>
+    </div>
   </div>
 </template>
 
 <script setup>
-import { ref } from 'vue'
 import palomaUrl from '../components/encuentro_evangelistico/paloma-wbg.png'
+import mapaUrl from '../components/encuentro_evangelistico/mapa-iglesia.png'
 
-// Props editables para el afiche
+// Props editables
 const props = defineProps({
+  // Afiche del evento
   fechaEvento: { type: String, default: 'SÁBADO 18 DE JULIO' },
   horaEvento: { type: String, default: '4:00PM' },
   lugarEvento: { type: String, default: 'COLISEO DEL COLEGIO MIGUEL GRAU' },
-  referenciaEvento: { type: String, default: 'PAMPA INALAMBRICA, ILO' }
+  referenciaEvento: { type: String, default: 'PAMPA INALAMBRICA, ILO' },
+  // Hoja de ubicación
+  nombreTemplo: { type: String, default: 'TEMPLO CENTRAL' },
+  direccionTemplo: { type: String, default: 'URB JOSÉ OLAYA D-28' },
+  distritoTemplo: { type: String, default: 'PAMPA INALAMBRICA ILO' }
 })
 </script>
 
@@ -80,8 +108,9 @@ const props = defineProps({
   background: #f5f5f5;
   padding: 2cm;
   display: flex;
-  justify-content: center;
-  align-items: flex-start;
+  flex-direction: column;
+  align-items: center;
+  gap: 2cm;
   font-family: 'Open Sans', sans-serif;
 }
 
@@ -242,6 +271,63 @@ const props = defineProps({
   margin: 0;
   line-height: 1.1;
   letter-spacing: 0.3px;
+}
+
+/* ── Estilos para afiche de ubicación ── */
+
+.afiche-ubicacion {
+  padding: 0.5cm 0.6cm;
+}
+
+.ubicacion-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.3cm;
+}
+
+.titulo-templo {
+  font-size: 19pt;
+  font-weight: 800;
+  color: #1a2332;
+  margin: 0;
+  text-align: center;
+  letter-spacing: 0.5px;
+}
+
+.mapa-container {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.mapa-imagen {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+}
+
+.direccion-info {
+  text-align: center;
+  width: 100%;
+}
+
+.direccion-zona {
+  font-size: 15pt;
+  font-weight: 800;
+  color: #1a2332;
+  margin: 0;
+  line-height: 1.3;
+}
+
+.direccion-distrito {
+  font-size: 15pt;
+  font-weight: 800;
+  color: #1a2332;
+  margin: 0;
+  line-height: 1.3;
 }
 
 /* ── Print ── */
