@@ -4,25 +4,28 @@
     <div class="a4-sheet">
       <div class="afiche" v-for="i in 4" :key="i">
         <div class="afiche-content">
-          <!-- Título superior -->
-          <h1 class="titulo-superior">¡VEN TÚ Y TU FAMILIA!</h1>
+          <!-- Cabecera: fondo celeste unificado -->
+          <div class="cabecera">
+            <!-- Título superior -->
+            <h1 class="titulo-superior">¡VEN TÚ Y TU FAMILIA!</h1>
 
-          <!-- Título curvo con paloma -->
-          <div class="titulo-curvo-container">
-            <svg class="titulo-curvo-svg" viewBox="0 0 260 140" xmlns="http://www.w3.org/2000/svg">
-              <defs>
-                <path id="arco-titulo" d="M 10,130 A 90,90 0 0,1 250,130" fill="none" />
-              </defs>
-              <text>
-                <textPath href="#arco-titulo" startOffset="50%" text-anchor="middle" class="titulo-curvo-texto">
-                  2DO ENCUENTRO EVANGELÍSTICO
-                </textPath>
-              </text>
-            </svg>
-            <img :src="palomaUrl" alt="Paloma" class="paloma-imagen" />
+            <!-- Título curvo con paloma -->
+            <div class="titulo-curvo-container">
+              <svg class="titulo-curvo-svg" viewBox="0 0 260 140" xmlns="http://www.w3.org/2000/svg">
+                <defs>
+                  <path id="arco-titulo" d="M 10,130 A 90,90 0 0,1 250,130" fill="none" />
+                </defs>
+                <text>
+                  <textPath href="#arco-titulo" startOffset="50%" text-anchor="middle" class="titulo-curvo-texto">
+                    2DO ENCUENTRO EVANGELÍSTICO
+                  </textPath>
+                </text>
+              </svg>
+              <img :src="palomaUrl" alt="Paloma" class="paloma-imagen" />
+            </div>
+
+            <h1 class="titulo-inferior">ILO - TACNA - MOQUEGUA</h1>
           </div>
-
-          <h1 class="titulo-inferior">ILO - TACNA - MOQUEGUA</h1>
 
           <div class="entrada">
             <!-- Versículo 1 -->
@@ -157,10 +160,17 @@ const props = defineProps({
 
 /* ── Tipografía ── */
 
+.cabecera {
+  background-color: #0dacec;
+  padding: 0.3cm 0.4cm;
+  -webkit-print-color-adjust: exact;
+  print-color-adjust: exact;
+}
+
 .titulo-superior {
   font-size: 17.5pt;
-  font-weight: 700;
-  color: #1a2332;
+  font-weight: 800;
+  color: #ffffff;
   margin: 0 0 0.2cm 0;
   line-height: 1.1;
   letter-spacing: 0.5px;
@@ -168,9 +178,9 @@ const props = defineProps({
 
 .titulo-inferior {
   font-size: 17.5pt;
-  font-weight: 700;
-  color: #4863b3;
-  margin: -0.7cm 0 0 0;
+  font-weight: 800;
+  color: #ffffff;
+  margin: 0;
   line-height: 1.1;
   letter-spacing: 0.5px;
 }
@@ -179,7 +189,7 @@ const props = defineProps({
   position: relative;
   width: 100%;
   height: 5cm;
-  margin: 0;
+  margin: 0.5cm 0 0 0;
 }
 
 .titulo-curvo-svg {
@@ -193,8 +203,8 @@ const props = defineProps({
 
 .titulo-curvo-texto {
   font-size: 15.5pt;
-  font-weight: 700;
-  fill: #4863b3;
+  font-weight: 800;
+  fill: #ffffff;
   font-family: 'Open Sans', sans-serif;
 }
 
@@ -245,9 +255,9 @@ const props = defineProps({
 
 .fecha,
 .hora {
-  font-size: 12pt;
+  font-size: 16pt;
   font-weight: 800;
-  color: #4863b3;
+  color: #0dacec;
   margin: 0;
   line-height: 1.4;
 }
@@ -356,6 +366,11 @@ const props = defineProps({
 
   .afiche {
     border-right: 1px dashed #ccc;
+  }
+
+  .cabecera {
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
   }
 }
 </style>
