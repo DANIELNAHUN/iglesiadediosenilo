@@ -131,7 +131,7 @@ const props = defineProps({
   font-size: 17.5pt;
   font-weight: 700;
   color: #1a2332;
-  margin: 0;
+  margin: 0 0 0.2cm 0;
   line-height: 1.1;
   letter-spacing: 0.5px;
 }
@@ -140,7 +140,7 @@ const props = defineProps({
   font-size: 17.5pt;
   font-weight: 700;
   color: #4863b3;
-  margin: ;
+  margin: -0.7cm 0 0 0;
   line-height: 1.1;
   letter-spacing: 0.5px;
 }
@@ -178,7 +178,7 @@ const props = defineProps({
 }
 
 .versiculo-principal {
-  font-size: 9pt;
+  font-size: 8pt;
   font-weight: 700;
   color: #1a2332;
   margin: 0;
