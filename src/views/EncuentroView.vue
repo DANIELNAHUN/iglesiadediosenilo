@@ -77,7 +77,15 @@
             <img :src="mapaUrl" alt="Mapa de ubicación de la iglesia" class="mapa-imagen" />
           </div>
 
-          
+          <!-- Horarios -->
+          <div class="horarios-box">
+            <h3 class="horarios-titulo">HORARIOS</h3>
+            <div class="horarios-lista">
+              <p class="horario-item"><strong>Cultos:</strong> Lun, Mie, Jue y Sab: 6:00pm a 8:00pm</p>
+              <p class="horario-item"><strong>Estudios Bíblicos:</strong> Mar y Vie: 6:30pm a 8:30pm</p>
+              <p class="horario-item"><strong>Ayuno Dominical:</strong> 9am a 12pm</p>
+            </div>
+          </div>
         </div>
       </div>
     </div>
@@ -339,6 +347,42 @@ const props = defineProps({
   color: #1a2332;
   margin: 0;
   line-height: 1.3;
+}
+
+/* ── Horarios ── */
+
+.horarios-box {
+  width: 100%;
+  border: 2px solid #1a2332;
+  border-radius: 8px;
+  padding: 0.15cm 0.1cm;
+  text-align: center;
+}
+
+.horarios-titulo {
+  font-size: 12pt;
+  font-weight: 800;
+  color: #1a2332;
+  margin: 0 0 0 0;
+  letter-spacing: 0.5px;
+}
+
+.horarios-lista {
+  display: flex;
+  flex-direction: column;
+  gap: 0.1cm;
+}
+
+.horario-item {
+  font-size: 10pt;
+  font-weight: 600;
+  color: #1a2332;
+  margin: 0;
+  line-height: 1.3;
+}
+
+.horario-item strong {
+  font-weight: 800;
 }
 
 /* ── Print ── */
