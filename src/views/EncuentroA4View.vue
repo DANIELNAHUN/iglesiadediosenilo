@@ -115,7 +115,7 @@ const props = defineProps({
 .titulo-inferior {
   font-size: 35pt;
   font-weight: 700;
-  color: #4863b3;
+  color: #1a2332;
   margin: 0;
   line-height: 1.1;
   letter-spacing: 1px;
@@ -140,7 +140,7 @@ const props = defineProps({
 .titulo-curvo-texto {
   font-size: 17pt;
   font-weight: 700;
-  fill: #4863b3;
+  fill: #1a2332;
   font-family: 'Open Sans', sans-serif;
 }
 
@@ -164,7 +164,7 @@ const props = defineProps({
 .tema {
   font-size: 24pt;
   font-weight: 700;
-  color: #e63946;
+  color: #1a2332;
   margin: 0;
   line-height: 1.2;
   letter-spacing: 0.5px;
@@ -193,7 +193,7 @@ const props = defineProps({
 .hora {
   font-size: 24pt;
   font-weight: 800;
-  color: #4863b3;
+  color: #1a2332;
   margin: 0;
   line-height: 1.4;
 }
@@ -206,7 +206,7 @@ const props = defineProps({
 .lugar-secundario {
   font-size: 24pt;
   font-weight: 800;
-  color: #e63946;
+  color: #1a2332;
   margin: 0;
   line-height: 1.3;
 }
