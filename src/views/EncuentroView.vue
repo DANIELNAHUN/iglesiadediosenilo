@@ -81,7 +81,7 @@
           <div class="horarios-box">
             <h3 class="horarios-titulo">HORARIOS</h3>
             <div class="horarios-lista">
-              <p class="horario-item"><strong>Cultos:</strong> Lun, Mie, Jue y Sab: 6:00pm a 8:00pm</p>
+              <p class="horario-item"><strong>Cultos:</strong> Lun, Mie, Jue y Sab: 6:30pm a 8:00pm</p>
               <p class="horario-item"><strong>Estudios Bíblicos:</strong> Mar y Vie: 6:30pm a 8:30pm</p>
               <p class="horario-item"><strong>Ayuno Dominical:</strong> 9am a 12pm</p>
             </div>
