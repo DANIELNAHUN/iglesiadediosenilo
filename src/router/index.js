@@ -32,6 +32,12 @@ const router = createRouter({
       name: 'encuentro-a4',
       // Lazy-loaded: split into a separate chunk
       component: () => import('../views/EncuentroA4View.vue')
+    },
+    {
+      path: '/encuentro/black',
+      name: 'encuentro-black',
+      // Lazy-loaded: split into a separate chunk
+      component: () => import('../views/EncuentroBlackView.vue')
     }
   ],
   scrollBehavior() {
