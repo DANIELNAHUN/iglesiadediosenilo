@@ -163,18 +163,16 @@ const props = defineProps({
 
 .ingreso-libre-badge {
   position: absolute;
-  top: 20px;
-  right: -12px;
-  background-color: #ffffff;
+  top: 215px;
+  width: 100%;
   color: #1a2332;
-  font-size: 14pt;
+  font-size: 25pt;
   font-weight: 800;
   padding: 4px 12px;
-  transform: rotate(25deg);
-  z-index: 10;
+  transform: rotate(0deg);
+  z-index: 0;
   letter-spacing: 0.5px;
-  border-radius: 2px;
-  border: 1.5px solid #1a2332;
+  text-align: center;
 }
 
 .afiche:nth-child(2n) {
