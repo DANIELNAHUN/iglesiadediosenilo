@@ -5,7 +5,10 @@
         <div class="afiche-content">
           <!-- Título superior -->
           <h1 class="titulo-superior">¡VEN TÚ Y TU FAMILIA!</h1>
-
+          <!-- Badge INGRESO LIBRE -->
+          <div class="ingreso-libre-badge">
+            <span>INGRESO LIBRE</span>
+          </div>
           <!-- Título curvo con paloma -->
           <div class="titulo-curvo-container">
             <svg class="titulo-curvo-svg" viewBox="0 0 260 140" xmlns="http://www.w3.org/2000/svg">
@@ -81,6 +84,7 @@ const props = defineProps({
   height: 29.7cm;
   background: white;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  position: relative;
 }
 
 .afiche-full {
@@ -100,6 +104,24 @@ const props = defineProps({
   flex-direction: column;
   justify-content: space-between;
 }
+
+/* ── Badge INGRESO LIBRE ── */
+
+.ingreso-libre-badge {
+  position: absolute;
+  top: 45%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 100%;
+  color: #1a2332;
+  font-size: 50pt;
+  font-weight: 800;
+  padding: 4px 12px;
+  z-index: 0;
+  letter-spacing: 0.5px;
+  text-align: center;
+}
+
 
 /* ── Tipografía (2x del afiche 4-up) ── */
 
@@ -148,7 +170,7 @@ const props = defineProps({
   position: absolute;
   width: 8cm;
   height: auto;
-  top: 35%;
+  top: 22%;
   left: 50%;
   transform: translate(-50%, -15%);
 }

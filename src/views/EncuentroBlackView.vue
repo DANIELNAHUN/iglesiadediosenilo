@@ -41,7 +41,7 @@
 
           <!-- Versículo 2 -->
           <div class="segundo-versiculo">
-            <p class="versiculo-secundario">"AL QUE CREA TODO LE ES POSIBLE"</p>
+            <p class="versiculo-secundario">"AL QUE CREE TODO LE ES POSIBLE"</p>
             <p class="referencia-biblica">(San Marcos 9:23)</p>
           </div>
 
